@@ -1,0 +1,52 @@
+{% load  static%}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>feedback analyser</title>
+<link rel="stylesheet" type="text/css" href="{% static 'style/style.css'%}" title="style" />
+</head>
+
+<body>
+	<div id="main">
+		<div id="header">
+			<div id="logo">
+				<div id="logo_text">
+					<!-- class="logo_colour", allows you to change the colour of the text -->
+					<h3>
+						<center><a href="#"><font color="white" size="5">Feedback Detection</font></a></center>
+					</h3>
+					<br/><br/>
+				</div>
+			</div>
+		</div>
+		<div id="content_header"></div>
+		<div id="site_content">
+			<div id="content">
+				
+				<h1>Login Status : {{message}}</h1>
+
+				<form name="form" action="/loginaction/">
+					{% csrf_token %}
+					<div class="form_settings">
+						
+						<p>
+							<span>User Name :</span><input class="contact" type="text"
+								name="username" value="" />
+						</p>
+						<p>
+							<span>Password :</span><input class="contact" type="password"
+								name="password" value="" />
+						</p>
+						<p style="padding-top: 15px">
+							<span>&nbsp;</span><input class="submit" type="submit"
+								name="contact_submitted" value="Login" />
+						</p>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

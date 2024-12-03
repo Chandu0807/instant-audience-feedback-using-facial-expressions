@@ -1,0 +1,43 @@
+{% load  static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>College Feedback</title>
+<link href="{% static 'css/style.css'%}" href="" rel="stylesheet" type="text/css" media="all"/>
+
+  
+  <script>
+        function video_off() {
+          document.getElementById("img").src = "";
+          document.getElementById("img").innerHTML = "Turned off";
+        }
+    </script>
+
+</head>
+<body>
+	<!-- agileits-main -->
+	<div class="agileits-main">
+        <h1 class="agileits-w3layouts">College Feedback</h1> <br/> <br/>
+        <div align="center">
+
+            <button onclick="video_off()"><font color="red" size="5">Stop</font></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/stop" onclick="video_off()"> <font color="red" size="5">View Result</font></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/home" onclick="video_off()"> <font color="red" size="5">Back</font></a>
+
+        </div>
+		<div class="wthree-row w3-agile"> 
+			<div id="videoContainer">
+				<div class="overlay">
+				</div>
+				<div id="video">
+					<!--<video src="video/1.mp4"></video>-->
+					<img id="img" src="{% url 'live_camera' %}" height="500" width=800">
+				</div>
+			</div>
+			<script src="{% static 'js/jquery-3.1.0.min.js'%}"></script>
+		</div>	
+	</div>	
+	
+</body>
+</html>

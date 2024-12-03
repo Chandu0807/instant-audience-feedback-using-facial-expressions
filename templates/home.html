@@ -1,0 +1,85 @@
+{% load  static%}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="{% static 'style/style.css'%}" title="style" />
+
+    <style>
+        #customers {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        #customers td, #customers th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #4CAF50;
+          color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+	<div id="main">
+		<div id="header">
+			<div id="logo">
+				<div id="logo_text">
+					
+					<h3>
+						<center><a href="#"><font color="white" size="5">Feedback Detection</font></a></center>
+					</h3>
+					<br/><br/>
+				</div>
+			</div>
+            <div id="menubar">
+				<ul id="menu">
+					<li><a href="/start">Start</a></li>
+                    <li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content_header"></div>
+		<div id="site_content">
+			<div id="content">
+
+				<h1>Login Status : {{message}}</h1>
+
+				<table id="customers">
+                  <tr>
+                      <th>Starting Time</th>
+                      <th>Ending Time</th>
+                      <th>Positive Count</th>
+                      <th>Negative Count</th>
+                  </tr>
+                    {% for feedback in feedbacks %}
+
+                        <tr>
+                            <td>{{ feedback.start_time }}</td>
+                            <td>{{ feedback.end_time }}</td>
+                            <td>{{ feedback.pcount }}</td>
+                            <td>{{ feedback.ncount }}</td>
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

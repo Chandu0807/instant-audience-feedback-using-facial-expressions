@@ -1,0 +1,70 @@
+{% load  static%}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>face expression</title>
+<link rel="stylesheet" type="text/css" href="{% static 'style/style.css'%}" title="style" />
+
+    <script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Feedback"
+	},
+	axisY: {
+		title: "count"
+	},
+	data: [{
+		type: "column",
+		showInLegend: true,
+		legendMarkerColor: "green",
+		legendText: "Positive vs Negative",
+		dataPoints: [
+
+		    { y: {{ ncount }},  label: "Negative" },
+			{ y: {{ pcount }}, label: "Positive" },
+		]
+	}]
+});
+chart.render();
+
+}
+</script>
+
+</head>
+
+<body>
+	<div id="main">
+		<div id="header">
+			<div id="logo">
+				<div id="logo_text">
+					<!-- class="logo_colour", allows you to change the colour of the text -->
+					<h3>
+						<center><a href="#"><font color="white" size="5">Feedback Detection</font></a></center>
+					</h3>
+					<br/><br/>
+				</div>
+			</div>
+            <div id="menubar">
+				<ul id="menu">
+					<li><a href="/start">Start</a></li>
+                    <li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content_header"></div>
+		<div id="site_content">
+			<div id="content">
+
+				<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
